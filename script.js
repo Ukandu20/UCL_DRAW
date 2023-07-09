@@ -97,16 +97,49 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   
     function displayResults(groups) {
-      for (const group in groups) {
-        if (groups.hasOwnProperty(group)) {
-          const groupData = groups[group];
-          const teams = groupData.teams.map(team => team.team).join(', ');
-          const color = groupData.color;
-          const groupElement = document.createElement('div');
-          groupElement.innerHTML = `${group} (${color}): ${teams}`;
-          drawResults.appendChild(groupElement);
+        const drawResults = document.getElementById('draw-results');
+        drawResults.innerHTML = '';
+      
+        const table = document.createElement('table');
+        table.classList.add('draw-table');
+      
+        // Create table headers
+        const headersRow = document.createElement('tr');
+        const headers = ['Group', 'Color', 'Teams'];
+        headers.forEach(headerText => {
+          const header = document.createElement('th');
+          header.textContent = headerText;
+          headersRow.appendChild(header);
+        });
+        table.appendChild(headersRow);
+      
+        // Create table rows for each group
+        for (const group in groups) {
+          if (groups.hasOwnProperty(group)) {
+            const groupData = groups[group];
+            const teams = groupData.teams.map(team => team.team).join(', ');
+            const color = groupData.color;
+      
+            const groupRow = document.createElement('tr');
+      
+            const groupCell = document.createElement('td');
+            groupCell.textContent = group;
+            groupRow.appendChild(groupCell);
+      
+            const colorCell = document.createElement('td');
+            colorCell.textContent = color;
+            groupRow.appendChild(colorCell);
+      
+            const teamsCell = document.createElement('td');
+            teamsCell.textContent = teams;
+            groupRow.appendChild(teamsCell);
+      
+            table.appendChild(groupRow);
+          }
         }
+      
+        drawResults.appendChild(table);
       }
-    }
+      
   });
   

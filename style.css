@@ -2,13 +2,30 @@ body {
     font-family: Arial, sans-serif;
     text-align: center;
     margin: 20px;
-  }
-  
-  h1 {
+}
+
+img {
+    max-width: 4%;
+    height: auto;
+    margin: 0 10px;
+    vertical-align: auto;
+    display:flex;
+    position: relative;
+    justify-content: left;
+    align-items: flex-start;
+    float: left;
+
+}
+
+h1 {
     margin-bottom: 20px;
-  }
-  
-  button {
+    line-height: normal;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 50px;
+    
+}
+
+button {
     padding: 10px 20px;
     font-size: 16px;
     background-color: #007bff;
@@ -16,10 +33,28 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-  }
-  
-  #draw-results {
+}
+
+#draw-results {
     margin-top: 20px;
     text-align: left;
+}
+
+
+.draw-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .draw-table th,
+  .draw-table td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .draw-table th {
+    background-color: #f2f2f2;
   }
   
